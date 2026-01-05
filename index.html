@@ -1,9 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Speed Delivery - main</title>
+    <title>Speed Delivery - Le Jeu</title>
+    <!-- Custom Vanilla Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.2.3",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "react/": "https://esm.sh/react@^19.2.3/"
+        }
+      }
+    </script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Speed Delivery Logo" class="logo-img" />
+        <span class="logo-text">Speed Delivery</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#showcase">Cartes</a></li>
+          <li><a href="#rules">Règles</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <h1>Livrez plus vite que votre ombre !</h1>
+        <p>
+          Le jeu de société frénétique où chaque tour compte. Évitez la police,
+          gérez la météo et livrez vos pizzas avant qu'elles ne refroidissent !
+        </p>
+        <button
+          class="cta-button"
+          onclick="document.getElementById('showcase').scrollIntoView({behavior: 'smooth'})"
+        >
+          Découvrir les Cartes
+        </button>
+      </section>
+
+      <section id="showcase" class="showcase">
+        <div class="title-container">
+          <h2 class="section-title">La Galerie</h2>
+        </div>
+        <p style="text-align: center; margin-bottom: 2rem; font-style: italic">
+          Cliquez sur une carte pour la retourner !
+        </p>
+
+        <!-- Filter options -->
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="all">Toutes les cartes</button>
+          <button class="filter-btn" data-filter="team">Cartes Équipe</button>
+          <button class="filter-btn" data-filter="star">Cartes Étoile</button>
+          <button class="filter-btn" data-filter="location">Cartes Localisation</button>
+          <button class="filter-btn" data-filter="event">Cartes Événement</button>
+        </div>
+
+        <!-- Grid container for JS generation -->
+        <div id="card-grid" class="card-grid">
+          <!-- Cards will be injected here by JS -->
+        </div>
+      </section>
+
+      <section id="rules" class="rules">
+        <div class="title-container">
+          <h2 class="section-title">Règles du Jeu</h2>
+        </div>
+
+        <!-- Visual Guide Section -->
+        <div class="rules-visuals">
+          <!-- On utilise des noms génériques ici, assurez-vous que les fichiers correspondent ou sont renommés -->
+          <img
+            src="assets/règle français 1.png"
+            alt=""
+            onerror="this.style.display='none'"
+          />
+          <img
+            src="assets/règle français 2.png"
+            alt=""
+            onerror="this.style.display='none'"
+          />
+          <img
+            src="assets/règle anglais 1.png"
+            alt=""
+            onerror="this.style.display='none'"
+          />
+          <img
+            src="assets/règle anglais 2.png"
+            alt=""
+            onerror="this.style.display='none'"
+          />
+        </div>
+
+        <!-- Modal for enlarged images -->
+        <div id="image-modal" class="modal">
+          <img id="modal-img" src="" alt="Image agrandie" />
+        </div>
+
+        <h2>Introduction</h2>
+        <p>
+          Speed Delivery est un jeu de société stratégique et rapide pour 2 à 4
+          joueurs, où chacun incarne un livreur de pizza rival. Le but est de
+          livrer des commandes plus vite que les concurrents, tout en gérant des
+          événements imprévus comme la météo, la police ou des pannes. Le jeu
+          combine chance, stratégie et gestion de ressources.
+        </p>
+
+        <h2>Matériel Nécessaire</h2>
+        <ul>
+          <li>
+            1 plateau de jeu (circuit urbain avec cases, points de
+            livraison et zones spéciales).
+          </li>
+          <li>40 cartes Événement (mélangées en pioche).</li>
+          <li>30 cartes Point de Livraison (mélangées en pioche séparée).</li>
+          <li>4 pions joueurs (scooters).</li>
+          <li>
+            Jetons d'argent.
+          </li>
+          <li>Cartes Étoile (jetons ou cartes pour compter les étoiles).</li>
+        </ul>
+
+        <h2>Préparation de la Partie</h2>
+        <ol>
+          <li>Placez le plateau au centre de la table.</li>
+          <li>
+            Mélangez les cartes Événement et formez une pioche face cachée.
+          </li>
+          <li>
+            Mélangez les cartes Point de Livraison et formez une pioche séparée.
+          </li>
+          <li>
+            Chaque joueur choisit un pion et le place sur la case "Départ".
+          </li>
+          <li>
+            Le joueur le plus jeune commence. Les tours se déroulent dans le
+            sens des aiguilles d'une montre.
+          </li>
+        </ol>
+
+        <h2>Objectif du Jeu</h2>
+        <p>
+          Le premier joueur à atteindre <strong>1200€</strong> en argent OU à
+          collecter et conserver <strong>5 cartes Étoile</strong> (ou équivalent
+          en jetons) pendant au moins
+          <strong>2 tours consécutifs</strong> remporte la partie. Les étoiles
+          peuvent être perdues si un événement les fait disparaître, rompant la
+          séquence.
+        </p>
+
+        <h2>Déroulement d'un Tour</h2>
+        <p>
+          Chaque tour se compose de 3 phases principales. Les effets des cartes
+          s'appliquent immédiatement et peuvent modifier les phases suivantes.
+        </p>
+        <ol>
+          <li>
+            <strong>Pioche d'Événement</strong> : Au début de votre tour,
+            piochez la carte du dessus de la pioche Événement et appliquez son
+            effet immédiatement. Les effets peuvent affecter votre mouvement,
+            votre argent ou vos étoiles. Replacez la carte au fond de la pioche
+            après application.
+          </li>
+          <li>
+            <strong>Déplacement</strong> : Avancez votre pion de
+            <strong>3 cases</strong> sur le plateau (mouvement de base). Les
+            événements peuvent modifier ce nombre (+ ou - cases). Si vous
+            dépassez une case Point de Livraison, vous ne vous arrêtez pas
+            automatiquement (sauf indication contraire). Le plateau est
+            circulaire : atteignez la fin pour revenir au début.
+          </li>
+          <li>
+            <strong>Livraison</strong> : Si votre pion atteint
+            une case Point de Livraison (marquée sur le plateau), piochez une
+            carte Point de Livraison et appliquez son effet : Gagnez de l'argent.
+            Certaines cartes peuvent combiner argent et étoiles ou appliquer des
+            bonus/malus supplémentaires.
+          </li>
+        </ol>
+        <p>
+          Fin du tour : Vérifiez si vous avez atteint l'objectif. Sinon, passez
+          au joueur suivant.
+        </p>
+
+        <h2>Types de Cartes et Effets Détaillés</h2>
+        <p>
+          Les cartes sont inspirées des noms fournis. Chaque carte Événement a
+          un effet unique qui influence le tour actuel ou futur. Les cartes
+          Point de Livraison sont des récompenses pour les livraisons réussies.
+        </p>
+
+        <h3>Cartes Point de Livraison (Récompenses)</h3>
+        <p>
+          Piochées uniquement en arrivant sur une case livraison. Exemples
+          typiques :
+        </p>
+        <ul>
+          <li>Livraison simple : +50€</li>
+          <li>Livraison express : +100€</li>
+          <li>Livraison premium : +200€</li>
+          <li>Livraison étoilée : +1 Étoile</li>
+          <li>Livraison double : +100€ + 1 Étoile</li>
+        </ul>
+
+        <h2>Règles Spéciales</h2>
+        <ul>
+          <li>
+            <strong>Argent</strong> : Accumuler pour gagner !.
+          </li>
+          <li>
+            <strong>Étoiles</strong> : Collectées pour l'objectif alternatif.
+            Elles peuvent être perdues si un événement comme "invasion de rat" les
+            affecte.
+          </li>
+          <li>
+            <strong>Durée</strong> : Une partie dure environ 30-45 minutes.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Speed Delivery Board Game. Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
