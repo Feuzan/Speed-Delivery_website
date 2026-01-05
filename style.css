@@ -337,6 +337,23 @@ nav a:hover {
     z-index: 10;
 }
 
+/* Styling for the board image in rules section */
+.rules img {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--primary-orange);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.rules img:hover {
+    transform: scale(1.02);
+}
+
 /* Modal for enlarged images */
 .modal {
     display: none;
