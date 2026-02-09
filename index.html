@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -42,7 +42,11 @@
         </p>
         <button
           class="cta-button"
-          onclick="document.getElementById('showcase').scrollIntoView({behavior: 'smooth'})"
+          onclick="
+            document
+              .getElementById('showcase')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
         >
           Découvrir les Cartes
         </button>
@@ -58,22 +62,22 @@
           <img
             src="assets/règle français 1.png"
             alt=""
-            onerror="this.style.display='none'"
+            onerror="this.style.display = 'none'"
           />
           <img
             src="assets/règle français 2.png"
             alt=""
-            onerror="this.style.display='none'"
+            onerror="this.style.display = 'none'"
           />
           <img
             src="assets/règle anglais 1.png"
             alt=""
-            onerror="this.style.display='none'"
+            onerror="this.style.display = 'none'"
           />
           <img
             src="assets/règle anglais 2.png"
             alt=""
-            onerror="this.style.display='none'"
+            onerror="this.style.display = 'none'"
           />
         </div>
 
@@ -120,16 +124,29 @@
             Le joueur le plus jeune commence. Les tours se déroulent dans le
             sens des aiguilles d'une montre.
           </li>
+          <li>
+            Distribuez une carte Événement à chaque joueur. Chaque joueur peut
+            posséder au maximum deux cartes.
+          </li>
+          <li>
+            Pour se défausser d’une carte, un joueur doit l’utiliser
+            immédiatement. Il peut également se défausser d’une carte en
+            retournant à sa base, même sans l’avoir utilisée.
+          </li>
+
+          <li>
+            Les joueurs n'ont la possibilité de pouvoir joué que une seul carte
+            par tour. Il peut aussi regarder les cartes des autres joueurs en
+            passsant dans leurs restaurant.
+          </li>
         </ol>
 
         <h2>Objectif du Jeu</h2>
         <p>
-          Le premier joueur à atteindre <strong>1200€</strong> en argent OU à
-          collecter et conserver <strong>5 cartes Étoile</strong> (ou équivalent
-          en jetons) pendant au moins
-          <strong>2 tours consécutifs</strong> remporte la partie. Les étoiles
-          peuvent être perdues si un événement les fait disparaître, rompant la
-          séquence.
+          Pour gagner la partie, il faut soit atteindre le palier de
+          <strong>1200 €</strong>, soit conserver
+          <strong>5 Étoiles</strong> pendant au moins <strong>2 tours</strong>.
+          Chaque livraison donne <strong>200 €</strong>.
         </p>
 
         <h2>Déroulement d'un Tour</h2>
@@ -139,19 +156,16 @@
         </p>
         <ol>
           <li>
-            <strong>Pioche d'Événement</strong> : Au début de votre tour,
-            piochez la carte du dessus de la pioche Événement et appliquez son
-            effet immédiatement. Les effets peuvent affecter votre mouvement,
-            votre argent ou vos étoiles. Replacez la carte au fond de la pioche
-            après application.
+            <strong>Pioche d'Événement</strong> : chaque joueur doit piocher une
+            carte Événement. Il existe des cartes à utiliser sur soi-même et des
+            cartes à utiliser sur les autres, cela est indiqué sur la carte.
           </li>
           <li>
-            <strong>Déplacement</strong> : Avancez votre pion de
-            <strong>3 cases</strong> sur le plateau (mouvement de base). Les
-            événements peuvent modifier ce nombre (+ ou - cases). Si vous
-            dépassez une case Point de Livraison, vous ne vous arrêtez pas
-            automatiquement (sauf indication contraire). Le plateau est
-            circulaire : atteignez la fin pour revenir au début.
+            <strong>Déplacement</strong> : Chaque joueur, à son tour, doit
+            obligatoirement avancer de <strong>trois cases</strong>. Au début du
+            premier tour, une carte Point de livraison doit être piochée. Quand
+            un joueur atteint le Point de livraison, celui-ci change : le joueur
+            doit alors piocher une nouvelle carte Point de livraison.
           </li>
           <li>
             <strong>Livraison</strong> : Si votre pion atteint une case Point de
@@ -165,45 +179,96 @@
           Fin du tour : Vérifiez si vous avez atteint l'objectif. Sinon, passez
           au joueur suivant.
         </p>
-
-        <h2>Types de Cartes et Effets Détaillés</h2>
-        <p>
-          Les cartes sont inspirées des noms fournis. Chaque carte Événement a
-          un effet unique qui influence le tour actuel ou futur. Les cartes
-          Point de Livraison sont des récompenses pour les livraisons réussies.
-        </p>
-
-        <h3>Cartes Point de Livraison (Récompenses)</h3>
-        <p>
-          Piochées uniquement en arrivant sur une case livraison. Exemples
-          typiques :
-        </p>
+        <h2>Familles des cartes</h2>
+        <h3>Cartes liées au livreur</h3>
         <ul>
-          <li>Livraison simple : +50€</li>
-          <li>Livraison express : +100€</li>
-          <li>Livraison premium : +200€</li>
-          <li>Livraison étoilée : +1 Étoile</li>
-          <li>Livraison double : +100€ + 1 Étoile</li>
-        </ul>
-
-        <h2>Règles Spéciales</h2>
-        <ul>
-          <li><strong>Argent</strong> : Accumuler pour gagner !.</li>
+          <li>Livreur du futur : vous ne pouvez plus avoir d’accident.</li>
           <li>
-            <strong>Étoiles</strong> : Collectées pour l'objectif alternatif.
-            Elles peuvent être perdues si un événement comme "invasion de rat"
-            les affecte.
-          </li>
-          <li>
-            <strong>Durée</strong> : Une partie dure environ 30-45 minutes.
+            Permis de conduire : la police ne peut pas vous arrêter (cette carte
+            ne peut être utilisée qu’une seule fois).
           </li>
         </ul>
-        <h3>Plateau de Jeu</h3>
+        <h3>Cartes liées au véhicules</h3>
+        <ul>
+          <li>Pneu blindé : vous ne pouvez pas crever.</li>
+          <li>
+            Pneu crevé : vous devez vous arrêter pendant 1 tour pour changer de
+            pneu.
+          </li>
+        </ul>
+        <h3>Cartes liées à la livraison</h3>
+        <ul>
+          <li>Commande prioritaire : la police ne peut plus vous arrêter.</li>
+          <li>
+            Commande double : permet de doubler la récompense d’une livraison.
+          </li>
+          <li>
+            Mauvaise destination : les joueurs piochent une nouvelle carte Point
+            de livraison.
+          </li>
+          <li>
+            coffre renforcé : la carte Fuite de pizza n’a pas d’effet sur vous.
+          </li>
+          <li>
+            fuite de pizza : désigne un joueur qui devient à court de pizzas et
+            doit retourner à son restaurant.
+          </li>
+          <li>
+            Gros gourmand ! : vous aviez un petit creux… vous avez mangé votre
+            pizza ! Retournez à votre restaurant pour en récupérer une.
+          </li>
+        </ul>
+        <h3>Cartes de pénalité et d'actions</h3>
+        <ul>
+          <li>Excès de vitesse : avancez de 2 cases supplémentaires.</li>
+          <li>
+            Oups, glissade ! : vous avez un accident et devez attendre 1 tour
+            avant de repartir.
+          </li>
+          <li>Banqueroute : forcez un adversaire à perdre 400€.</li>
+          <li>
+            Contrôle de police : peut être joué à tout moment. Si un joueur a
+            posé une carte illégale, il est mis en garde à vue, il doit sauter 2
+            tours et repartir à la case départ.
+          </li>
+          <li>
+            Raccourci ! : échangez votre place avec le joueur le plus proche.
+          </li>
+        </ul>
+        <h3>Cartes liées à l'environnement</h3>
+        <ul>
+          <li>Grand soleil : annule la carte météorologiques en cours.</li>
+          <li>
+            Fin des travaux ! : libère une case route bloquée par des travaux.
+          </li>
+          <li>
+            Grêle : si les pizzas ne sont pas livrée au bout de 4 tours, elles
+            sont détruites et les joueurs doivent retourner en chercher une
+            autre. (affecte aussi le lanceur)
+          </li>
+          <li>10 septembre ! : les péages sont bloqués pendant 3 tours.</li>
+          <li>
+            Passage des éboueurs : bloque une case de route au choix pendant 3
+            tours.
+          </li>
+        </ul>
+        <h2>Plateau de Jeu</h2>
         <img
           src="assets/plateau.png"
           alt="Plateau de jeu Speed Delivery"
-          onerror="this.style.display='none'"
+          onerror="this.style.display = 'none'"
         />
+        <h3>Légendes:</h3>
+        <ul>
+          <li><span style="color: #808080; font-weight: bold;">Gris</span> - route</li>
+          <li><span style="color: #800080; font-weight: bold;">Violet</span> - restaurants des joueurs</li>
+          <li><span style="color: #FF0000; font-weight: bold;">Rouge</span> - points de livraison</li>
+          <li><span style="color: #FFA500; font-weight: bold;">Orange</span> - emplacement de travaux potentiel</li>
+          <li><span style="color: #FF00FF; font-weight: bold;">Magenta</span>, <span style="color: #FFC0CB; font-weight: bold;">Rose</span>, <span style="color: #0000FF; font-weight: bold;">Bleu</span> - péage</li>
+          <li><span style="color: #008000; font-weight: bold;">Vert</span> - rond point</li>
+          <li>Pions <span style="color: #008000; font-weight: bold;">vert</span> - éboueurs</li>
+          <li>Pions <span style="color: #FFFF00; font-weight: bold; text-shadow: 1px 1px 2px #999;">jaune</span> - Carte travaux</li>
+        </ul>
       </section>
 
       <section id="showcase" class="showcase">
@@ -230,8 +295,7 @@
         </div>
 
         <!-- Grid container for JS generation -->
-        <div id="card-grid" class="card-grid">
-        </div>
+        <div id="card-grid" class="card-grid"></div>
       </section>
     </main>
 
