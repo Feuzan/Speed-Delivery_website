@@ -1,6 +1,3 @@
-// --- CONFIGURATION ---
-console.log("Speed Delivery JS chargé");
-
 // Liste des images de cartes, triées par type
 const cardImages = [
     // Cartes d'équipe
