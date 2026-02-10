@@ -6,6 +6,8 @@
     <title>Speed Delivery - Le Jeu</title>
     <!-- Custom Vanilla Styles -->
     <link rel="stylesheet" href="style.css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
     <script type="importmap">
       {
@@ -260,20 +262,70 @@
         />
         <h3>Légendes:</h3>
         <ul>
-          <li><span style="color: #808080; font-weight: bold;">Gris</span> - route</li>
-          <li><span style="color: #800080; font-weight: bold;">Violet</span> - restaurants des joueurs</li>
-          <li><span style="color: #FF0000; font-weight: bold;">Rouge</span> - points de livraison</li>
-          <li><span style="color: #FFA500; font-weight: bold;">Orange</span> - emplacement de travaux potentiel</li>
-          <li><span style="color: #FF00FF; font-weight: bold;">Magenta</span>, <span style="color: #FFC0CB; font-weight: bold;">Rose</span>, <span style="color: #0000FF; font-weight: bold;">Bleu</span> - péage</li>
-          <li><span style="color: #008000; font-weight: bold;">Vert</span> - rond point</li>
-          <li>Pions <span style="color: #008000; font-weight: bold;">vert</span> - éboueurs</li>
-          <li>Pions <span style="color: #FFFF00; font-weight: bold; text-shadow: 1px 1px 2px #999;">jaune</span> - Carte travaux</li>
+          <li>
+            <span style="color: #808080; font-weight: bold">Gris</span> - route
+          </li>
+          <li>
+            <span style="color: #800080; font-weight: bold">Violet</span> -
+            restaurants des joueurs
+          </li>
+          <li>
+            <span style="color: #ff0000; font-weight: bold">Rouge</span> -
+            points de livraison
+          </li>
+          <li>
+            <span style="color: #ffa500; font-weight: bold">Orange</span> -
+            emplacement de travaux potentiel
+          </li>
+          <li>
+            <span style="color: #ff00ff; font-weight: bold">Magenta</span>,
+            <span style="color: #ffc0cb; font-weight: bold">Rose</span>,
+            <span style="color: #0000ff; font-weight: bold">Bleu</span> - péage
+          </li>
+          <li>
+            <span style="color: #008000; font-weight: bold">Vert</span> - rond
+            point
+          </li>
+          <li>
+            Pions <span style="color: #008000; font-weight: bold">vert</span> -
+            éboueurs
+          </li>
+          <li>
+            Pions
+            <span
+              style="
+                color: #ffff00;
+                font-weight: bold;
+                text-shadow: 1px 1px 2px #999;
+              "
+              >jaune</span
+            >
+            - Carte travaux
+          </li>
         </ul>
+        <h2>Notre Teaser vidéo !</h2>
+        <! Intégrer la vidéo YouTube du teaser !>
+        <h2>Soutenir Speed Delivery et son équipe !</h2>
+        <h2>Galerie photo</h2>
+
+        <!-- Conteneur réglable : changez la variable CSS --carousel-height ou redimensionnez directement -->
+        <div id="carousel-container" class="carousel-container" style="--carousel-height:420px;">
+          <!-- Swiper Gallery -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="assets/pizza.webp" alt="Plateau de jeu" onerror="this.style.display='none'" /></div>
+              <div class="swiper-slide"><img src="assets/pizza.webp" alt="Règle FR 1" onerror="this.style.display='none'" /></div>
+              <div class="swiper-slide"><img src="assets/pizza.webp" alt="Règle FR 2" onerror="this.style.display='none'" /></div>
+              <div class="swiper-slide"><img src="assets/pizza.webp" alt="Logo" onerror="this.style.display='none'" /></div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
       </section>
 
       <section id="showcase" class="showcase">
         <div class="title-container">
-          <h2 class="section-title">La Galerie</h2>
+          <h2 class="section-title">Nos cartes</h2>
         </div>
         <p style="text-align: center; margin-bottom: 2rem; font-style: italic">
           Cliquez sur une carte pour la retourner !
@@ -303,5 +355,14 @@
       <p>&copy; 2026 Speed Delivery Board Game. Tous droits réservés.</p>
     </footer>
     <script src="script.js"></script>
+    <!-- Swiper JS and init -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.mySwiper', {
+        loop: true,
+        pagination: { el: '.swiper-pagination', dynamicBullets: true },
+        autoplay: { delay: 3000, disableOnInteraction: false }
+      });
+    </script>
   </body>
 </html>
