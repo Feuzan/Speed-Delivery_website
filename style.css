@@ -4,6 +4,9 @@
     --primary-red: #e74c3c;
     --bg-dark: #2c3e50;
     --text-light: #ecf0f1;
+    /* Card sizing: change these to adjust card size and aspect ratio */
+    --card-min-width: 220px;
+    --card-aspect: 248 / 350;
 }
 
 body {
@@ -179,18 +182,20 @@ nav a:hover {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     perspective: 1000px;
+    justify-items: center;
 }
 
 /* 3D Flip Animation CSS */
 .card-container {
     background-color: transparent;
     width: 100%;
-    aspect-ratio: 248 / 350;
+    max-width: var(--card-min-width);
+    aspect-ratio: var(--card-aspect);
     cursor: pointer;
     position: relative;
 }
@@ -402,4 +407,77 @@ footer {
 .mySwiper .swiper-slide:hover,
 .mySwiper .swiper-slide img:hover {
     transform: none !important;
+}
+
+/* Responsive rules */
+@media (max-width: 1024px) {
+    :root {
+        --card-min-width: 200px;
+        --carousel-height: 360px;
+    }
+    .hero {
+        padding: 4rem 1.5rem;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+    .hero p {
+        font-size: 1.15rem;
+    }
+    .logo-img {
+        height: 52px;
+    }
+    .logo-text {
+        font-size: 1.4rem;
+    }
+    .card-grid {
+        gap: 1.5rem;
+    }
+    .rules {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --card-min-width: 300px;
+        --carousel-height: 280px;
+    }
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        transform: none;
+        padding: 1rem;
+    }
+    .logo-container {
+        transform: none;
+    }
+    nav {
+        width: 100%;
+    }
+    nav ul {
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
+        gap: 1rem;
+    }
+    .rules-visuals {
+        grid-template-columns: 1fr;
+    }
+    footer {
+        padding: 2rem 1rem;
+    }
 }
