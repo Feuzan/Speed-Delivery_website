@@ -5,7 +5,7 @@
   --bg-dark: #2c3e50;
   --text-light: #ecf0f1;
   /* Card sizing: change these to adjust card size and aspect ratio */
-  --card-min-width: 300px;
+  --card-min-width: 250px;
   --card-aspect: 248 / 350;
 }
 
@@ -420,7 +420,7 @@ footer {
 /* Responsive rules */
 @media (max-width: 1024px) {
   :root {
-    --card-min-width: 300px;
+    --card-min-width: 250px;
     --carousel-height: 360px;
   }
   .hero {
